@@ -83,7 +83,7 @@ body.dark-theme {
   --body-color: hsl(var(--hue-color), 28%, 12%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 48%);
-  --scroll-thumb-color: hsl(var(--hue-color), 12%, 36%);
+  --scroll-thumb-color: var(--hue-color), 
 }
 
 /*========== Button Dark/Light ==========*/
@@ -889,115 +889,161 @@ img {
 
 /*==================== CONTACT ME ====================*/
 .contact__container {
-  row-gap: 3rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: var(--container-color);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
 .contact__information {
   display: flex;
-  margin-bottom: var(--mb-2);
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .contact__icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--first-color);
-  margin-right: var(--mb-0-75);
+  margin-top: 0.2rem;
 }
 
-.content__title {
+.contact__title {
   font-size: var(--h3-font-size);
   font-weight: var(--font-medium);
-  font-size: 2rem;
-  margin-bottom: var(--mb-4);
+  margin-bottom: 0.25rem;
 }
 
 .contact__subtitle {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
+  margin-bottom: 0.5rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .contact__content {
-  background-color: var(--input-color);
+  background: var(--input-color);
   border-radius: 0.5rem;
-  padding: 0.75rem 1rem 0.25rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact__label {
   font-size: var(--smaller-font-size);
   color: var(--title-color);
-  font-size: 2rem;
-  margin-bottom: var(--mb-4);
+  margin-bottom: 0.25rem;
 }
 
-.contact__input {
+.contact__input,
+.contact__textarea {
   width: 100%;
-  background-color: var(--input-color);
+  background: transparent;
   color: var(--text-color);
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   border: none;
   outline: none;
-  padding: 0.25rem 0.5rem 0.5rem 0;
+  padding: 0.25rem 0;
+  resize: none;
 }
+
+.contact__textarea {
+  min-height: 100px;
+  max-height: 200px;
+}
+
+.contact__button {
+  align-self: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .contact__container {
+    padding: 1rem 0.5rem;
+  }
+  .contact__information {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
 
 /*==================== FOOTER ====================*/
 .footer {
   background-color: var(--second-color);
-}
-.footer__container {
-  row-gap: 3.5rem;
+  color: #fff;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
 }
 
-.footer__bg {
-  background-color: var(--second-color);
-  padding: 2rem 0 3rem;
+.footer__container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .footer__title {
   font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-0-25);
-  font-size: 2rem;
-  margin-bottom: var(--mb-4);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 0.5rem;
 }
 
-.footer__subtitle {
-  font-size: var(--small-font-size);
-  font-size: 2rem;
-  margin-bottom: var(--mb-4);
-}
-
-.footer__links {
+.footer__socials {
   display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
-}
-
-.footer__link:hover {
-  color: var(--first-color-lighter);
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .footer__social {
-  font-size: 2.5rem;
-  margin-right: var(--mb-1-5);
-  margin-bottom: var(--mb-4);
+  color: #fff;
+  font-size: 1.8rem;
+  transition: color 0.3s;
 }
 
 .footer__social:hover {
-  color: var(--first-color-lighter);
+  color: var(--first-color);
 }
 
 .footer__copy {
   font-size: var(--smaller-font-size);
-  text-align: center;
   color: var(--text-color-light);
-  margin-top: var(--mb-3);
+  margin-top: 1rem;
 }
 
-.footer__title,
-.footer__subtitle,
-.footer__link,
-.footer__social,
-.footer__copy {
-  color: #fff;
+/* Responsive footer */
+@media screen and (min-width: 768px) {
+  .footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    padding: 0 2rem;
+  }
+  .footer__title {
+    margin-bottom: 0;
+  }
+  .footer__socials {
+    margin-bottom: 0;
+  }
+  .footer__copy {
+    margin-top: 0;
+  }
 }
 
 /*========== SCROLL UP ==========*/
